@@ -76,10 +76,11 @@ def check_coin(ch):
 print("Welcome To Funicula Funiculi")
 print("We serve Capuccino ($2.5), Expresso ($3.75)")
 print("You can also see our resources by choosing 'report'")
+print("Type 'off' to turn off the coffee machine")
 cont = True
 while cont:
     choice = input("ENTER YOUR CHOICE: ").lower()
-    if choice != "report":
+    if choice != "report" and choice != "off":
         if check_resource(choice):
             list_index = check_resource(choice)
             if check_coin(list_index):
@@ -96,6 +97,8 @@ while cont:
                     cont = False
         else:
             print("Invalid Choice")
+    elif choice == "off":
+        cont = False
     else:
         print(f"Water: {all_list[0]["water"]}\nMilk:{all_list[0]["milk"]}\nCoffee:{all_list[0]["coffee"]}\nMoney:{all_list[0]["money"]}")
 
